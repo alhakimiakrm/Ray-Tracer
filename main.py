@@ -1,6 +1,8 @@
 import math
 
+
 class vector3D:
+    """A  three element vector used in 3D graphics to simulate things such as Ray Tracing, such as in this instance."""
     def __init__(self, x, y, z):
         self.x = x
         self.y = y
@@ -49,7 +51,7 @@ if __name__ == "__main__":
     scalar = 2
 
     print("Magnitude of Vector 1:", vector1.get_magnitude())
-    print("Normalized Vector 1:", vector1.get_normalized())
+    print(f"Normalized Vector 1:", vector1.get_normalized())
     print("Dot Product of Vector 1 and Vector 2:", vector3D.dot_product(vector1, vector2))
 
     result_vectorA = vector3D.add(vector1, vector2)
