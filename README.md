@@ -15,4 +15,4 @@ where:
   
 In practice, the rendering equation is solved using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) or other numerical methods that simulate the contributions of a large number of light paths, which collectively approximate the integral for realistic lighting effects.
 
-This Ray Tracer is created in Python using only the given libraries/modules that come with an installation of Python (3.8+), so there's no need to replicate an enviornment, simply download the main file and run it in your preffered IDE. 
+This Ray Tracer is created in Python using only the given libraries/modules that come with an installation of Python (3.8+), so there's no need to replicate an environment, simply download the main file and run it in your preffered IDE. 
