@@ -12,7 +12,10 @@ where:
 - ![Equation](/images/equation4.png) is the incident light at point **p** coming from direction ![Equation](/images/equation7.png).
 - ![Equation](/images/equation5.png) is the cosine of the angle between the incoming light direction ![Equation](/images/equation7.png) and the surface normal **n**
 
+
+  ![Diagram](/images/Ray_trace_diagram.svg.png)
   
 In practice, the rendering equation is solved using [Monte Carlo](https://en.wikipedia.org/wiki/Monte_Carlo_method) or other numerical methods that simulate the contributions of a large number of light paths, which collectively approximate the integral for realistic lighting effects.
 
 This Ray Tracer is created in Python using only the given libraries/modules that come with an installation of Python (3.8+), so there's no need to replicate an environment, simply download the main file and run it in your preffered IDE. 
+
