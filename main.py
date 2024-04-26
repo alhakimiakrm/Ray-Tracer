@@ -5,9 +5,30 @@ class vector3D:
         self.x = x
         self.y = y
         self.z = z
-
+    
+    def __add__(self, other):
+        return vector3D(self.x + other.x, self.y + other.y, self.z + other.z)
+    
+    def __sub__(self, other):
+        return vector3D(self.x - other.x, self.y - other.y, self.z - other.z)
+    
+    def __mul__(self, scalar):
+        if isinstance(scalar, (int, float)):
+            return vector3D(self.x * scalar, self.y * scalar, self.z *  scalar)
+        raise TypeError("Scalar must be a number.")
+    def __rmul__(self, scalar):
+        return self.__mul__(scalar)
+    
+    def __truediv__(self, scalar):
+        if scalar == 0:
+            raise ValueError("Cannot divide by zero.")
+        return vector3D(self.x / scalar, self.y / scalar, self.z / scalar)
+    
     def magnitude(self):
         return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+    
+    def __repr__(self):
+        return f"vector3D({self.x}, {self.y}, {self.z})"
 
     def normalize(self):
         mag = self.magnitude()
