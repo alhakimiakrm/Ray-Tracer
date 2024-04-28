@@ -22,8 +22,8 @@ Second row:
 """
 
 def main():
-    WIDTH = 3
-    HEIGHT = 2
+    WIDTH = 320
+    HEIGHT = 200
     im = image(WIDTH, HEIGHT)
     RED = color(x = 1 , y = 0, z = 0)
     GREEN = color(x = 0, y = 1, z = 0)
