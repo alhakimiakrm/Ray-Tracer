@@ -42,20 +42,4 @@ def main():
 
 
 if __name__ == "__main__":
-    vector1 = vector3D(1, -2, -2)
-    vector2 = vector3D(3, 6, 9)
-    scalar = 2
-
-    print("Magnitude of Vector 1:", vector1.magnitude())
-    print("Normalized Vector 1:", vector1.normalize())
-    print("Dot Product of Vector 1 and Vector 2:", vector3D.dot_product(vector1, vector2))
-
-    result_vectorA = vector3D.add(vector1, vector2)
-    result_vectorS = vector3D.subtract(vector1, vector2)
-    result_vectorM = vector3D.multiply(vector1, scalar)
-    result_vectorD = vector3D.divide(vector1, scalar)
-
-    print("Vectors added together: (", result_vectorA.x, ", ", result_vectorA.y, ", ", result_vectorA.z, ")", sep="")
-    print("Vectors subtracted: (", result_vectorS.x, ", ", result_vectorS.y, ", ", result_vectorS.z, ")", sep="")
-    print("Vectors multiplied: (", result_vectorM.x, ", ", result_vectorM.y, ", ", result_vectorM.z, ")", sep="")
-    print("Vectors divided: (", result_vectorD.x, ", ", result_vectorD.y, ", ", result_vectorD.z, ")", sep="")
+    main()
