@@ -2,7 +2,7 @@
     Creating a 3D sphere in a 2D space...
     
     Ray-Tracing Algorithm simplified: 
-        - Shoot a ray towards each pixel
+        -Shoot a ray towards each pixel
         -Find the nearest object hit by the ray in the scene
         -If hit, then find color at surface of the object
         
@@ -46,7 +46,7 @@
             x>max = +1 becomes the right edge
             
         Image width wil typically be different from the height e.g. 320 x 200
-        y cannot range from +1 amnd -1 - It has to be adjusted by the aspect ratio to prevent distortion 
+        y cannot range from +1 and -1 - It has to be adjusted by the aspect ratio to prevent distortion 
         
         AspectRatio = width / height = 320 / 200 = 1.6
         
@@ -61,3 +61,11 @@
     Ball color: #FF0000 - RED 
     
 """
+
+class Ray:
+    """The ray is a half-line that instantiates an origin and a normalized direction """
+    def __init__(self, origin, direction):
+        self.origin = origin
+        self.direction = direction.normalize()
+        
+        

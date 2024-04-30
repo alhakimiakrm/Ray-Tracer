@@ -1,13 +1,13 @@
 import unittest
 import vector_class
 
-vector_class.vector3D
+vector_class.Vector3d
 
 class TestVectors(unittest.TestCase):
     
     def setUp(self):
-        self.v1 = vector_class.vector3D(1, -2, -2)
-        self.v2 = vector_class.vector3D(3, 6, 9)
+        self.v1 = vector_class.Vector3d(1, -2, -2)
+        self.v2 = vector_class.Vector3d(3, 6, 9)
         
     def test_magnitude(self):
         self.assertAlmostEqual(self.v1.magnitude(), 3)

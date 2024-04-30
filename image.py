@@ -1,5 +1,5 @@
 
-class image:
+class Image:
     def __init__(self, width, height):
         self.width = width
         self.height = height
@@ -21,5 +21,5 @@ class image:
                         to_byte(color.x), to_byte(color.y), to_byte(color.z)
                         )
                     )
-                img_file.write("\n")
+            img_file.write("\n")
                 

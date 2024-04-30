@@ -1,84 +1,39 @@
 import math
 
-class vector3D:
-    
-    """
-    Vector class for Ray-Tracer to compute common operations including
-    the dot product and magnitude. 
-    
-    """
-    def __init__(self, x, y, z):
+
+class Vector3d:
+    """A three element vectorVector3d used in 3D graphics for multiple purposes"""
+
+    def __init__(self, x=0.0, y=0.0, z=0.0):
         self.x = x
         self.y = y
         self.z = z
-    
-    def __add__(self, other):
-        return vector3D(self.x + other.x, self.y + other.y, self.z + other.z)
-    
-    def __sub__(self, other):
-        return vector3D(self.x - other.x, self.y - other.y, self.z - other.z)
-    
-    def __mul__(self, scalar):
-        if isinstance(scalar, (int, float)):
-            return vector3D(self.x * scalar, self.y * scalar, self.z *  scalar)
-        raise TypeError("Scalar must be a number.")
-    def __rmul__(self, scalar):
-        return self.__mul__(scalar)
-    
-    def __truediv__(self, scalar):
-        if scalar == 0:
-            raise ValueError("Cannot divide by zero.")
-        return vector3D(self.x / scalar, self.y / scalar, self.z / scalar)
-    
+
+    def __str__(self):
+        return "({}, {}, {})".format(self.x, self.y, self.z)
+
+    def dot_product(self, other):
+        return self.x * other.x + self.y * other.y + self.z * other.z
+
     def magnitude(self):
-        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
-    
-    def __repr__(self):
-        return f"vector3D({self.x}, {self.y}, {self.z})"
+        return math.sqrt(self.dot_product(self))
 
     def normalize(self):
-        mag = self.magnitude()
-        if mag == 0:
-            raise ValueError("Cannot normalize a zero vector.")
-        return (round(self.x / mag, 2), round(self.y / mag, 2), round(self.z / mag, 2))
+        return self / self.magnitude()
 
-    @staticmethod
-    def dot_product(vector1, vector2):
-        return vector1.x * vector2.x + vector1.y * vector2.y + vector1.z * vector2.z
+    def __add__(self, other):
+        return Vector3d(self.x + other.x, self.y + other.y, self.z + other.z)
 
-    @staticmethod
-    def add(vector1, vector2):
-        return vector3D(vector1.x + vector2.x, vector1.y + vector2.y, vector1.z + vector2.z)
+    def __sub__(self, other):
+        return Vector3d(self.x - other.x, self.y - other.y, self.z - other.z)
 
-    @staticmethod
-    def subtract(vector1, vector2):
-        return vector3D(vector1.x - vector2.x, vector1.y - vector2.y, vector1.z - vector2.z)
+    def __mul__(self, other):
+        assert not isinstance(other, Vector3d)
+        return Vector3d(self.x * other, self.y * other, self.z * other)
 
-    @staticmethod
-    def multiply(vector1, scalar):
-        return vector3D(vector1.x * scalar, vector1.y * scalar, vector1.z * scalar)
+    def __rmul__(self, other):
+        return self.__mul__(other)
 
-    @staticmethod
-    def divide(vector1, scalar):
-        if scalar == 0:
-            raise ValueError("Cannot divide by zero.")
-        return vector3D(vector1.x / scalar, vector1.y / scalar, vector1.z / scalar)
-
-if __name__ == "__main__":
-    vector1 = vector3D(1, -2, -2)
-    vector2 = vector3D(3, 6, 9)
-    scalar = 2
-
-    print("Magnitude of Vector 1:", vector1.magnitude())
-    print("Normalized Vector 1:", vector1.normalize())
-    print("Dot Product of Vector 1 and Vector 2:", vector3D.dot_product(vector1, vector2))
-
-    result_vectorA = vector3D.add(vector1, vector2)
-    result_vectorS = vector3D.subtract(vector1, vector2)
-    result_vectorM = vector3D.multiply(vector1, scalar)
-    result_vectorD = vector3D.divide(vector1, scalar)
-
-    print("Vectors added together: (", result_vectorA.x, ", ", result_vectorA.y, ", ", result_vectorA.z, ")", sep="")
-    print("Vectors subtracted: (", result_vectorS.x, ", ", result_vectorS.y, ", ", result_vectorS.z, ")", sep="")
-    print("Vectors multiplied: (", result_vectorM.x, ", ", result_vectorM.y, ", ", result_vectorM.z, ")", sep="")
-    print("Vectors divided: (", result_vectorD.x, ", ", result_vectorD.y, ", ", result_vectorD.z, ")", sep="")
+    def __truediv__(self, other):
+        assert not isinstance(other, Vector3d)
+        return Vector3d(self.x / other, self.y / other, self.z / other)
